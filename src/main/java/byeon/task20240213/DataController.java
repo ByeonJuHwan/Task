@@ -12,34 +12,34 @@ import org.springframework.web.bind.annotation.RestController;
 public class DataController {
 
     @GetMapping("/data")
-    public Data data() {
-        return new Data(new Result("ok"));
+    public Form data() {
+        return new Form(new Data("ok"));
     }
 
 
     @GetMapping("/data2")
-    public ResponseEntity<Data> data2() {
-        return new ResponseEntity<>(new Data(new Result("ok")), HttpStatus.OK);
+    public ResponseEntity<Form> data2() {
+        return new ResponseEntity<>(new Form(new Data("ok")), HttpStatus.OK);
     }
 
     @Getter
     @Setter
-    static class Result {
+    static class Data {
 
         private String result;
 
-        public Result(String result) {
+        public Data(String result) {
             this.result = result;
         }
     }
 
     @Getter
     @Setter
-    static class Data {
-        private Result data;
+    static class Form {
+        private Data data;
 
-        public Data(Result result) {
-            this.data = result;
+        public Form(Data data) {
+            this.data = data;
         }
 
     }
